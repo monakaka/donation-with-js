@@ -45,6 +45,10 @@ document.querySelector('#noakhali-btn').addEventListener('click', function () {
 
     totalRestMoneyCalculation(noakhaliCurrentDonation);
 
+    // // create history
+
+    createHistory(noakhaliCurrentDonation, 'noakhali-title');
+
 })
 
 
@@ -59,6 +63,9 @@ document.querySelector('#feni-btn').addEventListener('click', function (e) {
     setElement('feni-donation-money', totalFeniDonation);
 
     totalRestMoneyCalculation(feniCurrentDonation);
+
+    // history create 
+    createHistory(feniCurrentDonation, 'feni-title');
 })
 
 
@@ -72,6 +79,9 @@ document.querySelector('#quota-btn').addEventListener('click', function () {
     setElement('quota-donation-money', totalQuotaDonation);
 
     totalRestMoneyCalculation(quotaCurrentDonation)
+
+    // history create 
+    createHistory(quotaCurrentDonation, 'quota-title');
 })
 
 
@@ -92,3 +102,64 @@ function totalRestMoneyCalculation(newDonation) {
 
     setElement('total-available-money', restAvalilableTotalMoney);
 }
+
+
+// history setup zone
+
+function createHistory(money, id) {
+    const availableMoney = getElement('total-available-money')
+
+    if (isNaN(money) || money > availableMoney) {
+        return;
+    }
+    const title = document.getElementById(id).innerText;
+    const historyTitle = `${money} Taka is ${title}`;
+    const currentDate = new Date();
+
+
+    const div = document.createElement('div');
+    div.classList.add('w-5/6', 'max-w-[1140px]', 'mx-auto', 'border', 'border-[#1111111A]', 'rounded-lg', 'p-8', 'my-8', 'space-y-4');
+
+
+    div.innerHTML = `
+     <h2 class="text-xl font-bold">${money} Taka is ${title}</h2>
+
+     <p class="text-[#111111B3]">${currentDate}</p>
+    `
+
+    const historyBox = document.getElementById('history-section');
+    historyBox.appendChild(div);
+}
+
+
+// history and donation toggle zone
+
+document.getElementById('history-btn').addEventListener('click', function () {
+    const donationBtn = document.getElementById('donation-btn');
+
+    donationBtn.classList.remove('bg-[#B4F461]', 'hover:bg-[#B4F461]')
+
+    donationBtn.classList.add('bg-transparent');
+
+
+    const historyBtn = document.getElementById('history-btn');
+
+    historyBtn.classList.remove('bg-transparent')
+    historyBtn.classList.add('bg-[#B4F461]', 'hover:bg-[#B4F461]')
+
+    const historyBox = document.getElementById('history-section');
+
+    const donationBox = document.getElementById('donation-container');
+
+
+
+    historyBox.classList.remove('hidden');
+
+    donationBox.classList.add('hidden');
+})
+
+
+document.getElementById('donation-btn').addEventListener('click', function () {
+
+})
+
