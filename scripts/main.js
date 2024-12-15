@@ -124,7 +124,7 @@ function createHistory(money, id) {
     div.innerHTML = `
      <h2 class="text-xl font-bold">${money} Taka is ${title}</h2>
 
-     <p class="text-[#111111B3]">${currentDate}</p>
+     <p class="text-[#111111B3]">Date: ${currentDate}</p>
     `
 
     const historyBox = document.getElementById('history-section');
