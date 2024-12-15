@@ -40,6 +40,8 @@ document.querySelector('#noakhali-btn').addEventListener('click', function () {
 
     setElement('noakhali-donation-money', totalNoakhaliDonation);
 
+    totalRestMoneyCalculation(noakhaliCurrentDonation);
+
 })
 
 
@@ -52,6 +54,8 @@ document.querySelector('#feni-btn').addEventListener('click', function (e) {
     const totalFeniDonation = currentDonationCalculation(feniPreviousDonation, feniCurrentDonation);
 
     setElement('feni-donation-money', totalFeniDonation);
+
+    totalRestMoneyCalculation(feniCurrentDonation);
 })
 
 
