@@ -128,7 +128,7 @@ function createHistory(money, id) {
     `
 
     const historyBox = document.getElementById('history-section');
-    historyBox.appendChild(div);
+    historyBox.insertBefore(div, historyBox.firstChild);
 }
 
 
@@ -160,6 +160,28 @@ document.getElementById('history-btn').addEventListener('click', function () {
 
 
 document.getElementById('donation-btn').addEventListener('click', function () {
+
+    const historyBtn = document.getElementById('history-btn');
+
+    historyBtn.classList.remove('bg-[#B4F461]', 'hover:bg-[#B4F461]')
+
+    historyBtn.classList.add('bg-transparent');
+
+
+    const donationBtn = document.getElementById('donation-btn');
+
+    donationBtn.classList.remove('bg-transparent')
+    donationBtn.classList.add('bg-[#B4F461]', 'hover:bg-[#B4F461]')
+
+    const historyBox = document.getElementById('history-section');
+
+    const donationBox = document.getElementById('donation-container');
+
+
+
+    historyBox.classList.add('hidden');
+
+    donationBox.classList.remove('hidden');
 
 })
 
