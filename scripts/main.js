@@ -20,8 +20,11 @@ function setElement(id, newMoney) {
 
 
 function currentDonationCalculation(previousTotalMoney, currentDonation) {
-    if (currentDonation < 0 || isNaN(currentDonation)) {
-        alert('invalid input');
+
+    const availableMoney = getElement('total-available-money');
+
+    if (currentDonation < 0 || isNaN(currentDonation) || currentDonation > availableMoney) {
+        alert('invalid input or do not have sufficient balance');
         return previousTotalMoney;
     }
     const newTotalMoney = previousTotalMoney + currentDonation;
@@ -82,7 +85,6 @@ function totalRestMoneyCalculation(newDonation) {
     }
 
     if (totalAvailabePreviousMoney <= 0 || totalAvailabePreviousMoney < newDonation) {
-        alert('You have not enough money to donate.');
         return;
     }
 
