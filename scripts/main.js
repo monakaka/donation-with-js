@@ -17,13 +17,13 @@ function setElement(id, newMoney) {
     const input = document.getElementById(id);
     input.innerText = newMoney;
 
-    if (isNaN(newMoney) || newMoney <= 0) {
-        return;
-    }
-    else {
-        console.log(newMoney)
-        document.getElementById('my_modal_1').showModal();
-    }
+    // if (isNaN(newMoney) || newMoney <= 0) {
+    //     return;
+    // }
+    // else {
+    //     console.log(newMoney)
+    //     document.getElementById('my_modal_1').showModal();
+    // }
 
 }
 
@@ -37,6 +37,7 @@ function currentDonationCalculation(previousTotalMoney, currentDonation) {
         return previousTotalMoney;
     }
     const newTotalMoney = previousTotalMoney + currentDonation;
+    document.getElementById('my_modal_1').showModal();
     return newTotalMoney;
 }
 
@@ -51,6 +52,7 @@ document.querySelector('#noakhali-btn').addEventListener('click', function () {
     const totalNoakhaliDonation = currentDonationCalculation(noakhaliPreviousDonation, noakhaliCurrentDonation);
 
     setElement('noakhali-donation-money', totalNoakhaliDonation);
+
 
     totalRestMoneyCalculation(noakhaliCurrentDonation);
 
