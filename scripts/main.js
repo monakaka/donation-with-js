@@ -196,3 +196,15 @@ document.getElementById('donation-btn').addEventListener('click', function () {
 
 })
 
+
+// scroll bg css added
+
+window.addEventListener('scroll', function () {
+    const header = document.getElementById('header-box');
+    if (window.scrollY > 0) {
+        header.classList.add('bg-white', 'opacity-90');
+    } else {
+        header.classList.remove('bg-white', 'opacity-90');
+    }
+})
+
