@@ -201,10 +201,16 @@ document.getElementById('donation-btn').addEventListener('click', function () {
 
 window.addEventListener('scroll', function () {
     const header = document.getElementById('header-box');
+    const btns = document.getElementById('btns');
     if (window.scrollY > 0) {
-        header.classList.add('bg-white', 'opacity-90');
+        header.classList.add('bg-white', 'opacity-95');
+        btns.classList.remove('mt-16');
+        btns.classList.add('bg-[#F9F7F3]');
+
     } else {
-        header.classList.remove('bg-white', 'opacity-90');
+        header.classList.remove('bg-white', 'opacity-95');
+        btns.classList.add('mt-16')
+        btns.classList.remove('bg-[#F9F7F3]')
     }
 })
 
