@@ -16,6 +16,15 @@ function getInputValue(id) {
 function setElement(id, newMoney) {
     const input = document.getElementById(id);
     input.innerText = newMoney;
+
+    if (isNaN(newMoney) || newMoney <= 0) {
+        return;
+    }
+    else {
+        console.log(newMoney)
+        document.getElementById('my_modal_1').showModal();
+    }
+
 }
 
 
@@ -23,7 +32,7 @@ function currentDonationCalculation(previousTotalMoney, currentDonation) {
 
     const availableMoney = getElement('total-available-money');
 
-    if (currentDonation < 0 || isNaN(currentDonation) || currentDonation > availableMoney) {
+    if (currentDonation <= 0 || isNaN(currentDonation) || currentDonation > availableMoney) {
         alert('invalid input or do not have sufficient balance');
         return previousTotalMoney;
     }
